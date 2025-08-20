@@ -1,0 +1,58 @@
+<app-header></app-header>
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class="toolbar-controls">
+    <app-filter (filterChanged)="applyFilter($event)"></app-filter>
+    <app-search (searchChanged)="applySearch($event)"></app-search>
+    <app-sort (sortValue)="applySort($event)"></app-sort>
+  </div>
+  <ng-template #noUsers>
+    <p class="no-user-error">No Users Found!!!</p>
+  </ng-template>
+  <!-- <cdk-virtual-scroll-viewport itemSize="56" minBufferPx="900" maxBufferPx="1350"> -->
+    <ion-grid *ngIf="filteredPersons.length!==0 ;else noUsers">
+      <ion-row>
+        <!-- <ion-col size-xs="12" size-md="6" size-lg="4" *cdkVirtualFor="let user of filteredPersons"> -->
+        <ion-col size-xs="12" size-md="6" size-lg="4" *ngFor="let user of filteredPersons">
+
+          <ion-card>
+            <ion-card-header class="card-header">
+              <div class="align-flex">
+               
+                <img [src]="user.image || '/assets/user.jpg'" alt="">
+
+                <ion-card-title class="card-title">{{user.fullName}}</ion-card-title>
+                <div class="user-icons-div">
+                  <ion-icon class="user-icons" name="trash-outline" (click)="deleteUser(user.id)"></ion-icon>
+                  <ion-icon class="user-icons" name="create-outline" (click)="editUser(user.id)"></ion-icon>
+                  <ion-icon class="user-icons" name="share-social-outline" (click)="shareData(user)"></ion-icon>
+                </div>
+
+              </div>
+            </ion-card-header>
+
+            <ion-card-content class="ion-margin-top">
+
+              <h4>Email : {{user.email}}</h4>
+              <h4>contactNumber : {{user.contactNumber}}</h4>
+              {{user.description}}
+            </ion-card-content>
+            <ion-chip [class]="user.premium === 'premium'?'pri-bg':'non-pri-bg'">{{user.premium}}</ion-chip>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  <!-- </cdk-virtual-scroll-viewport> -->
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button [routerLink]="['/form']" routerDirection="forward">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button>
+      <ion-icon name="scan-circle-outline" (click)="openScanner()"></ion-icon>
+
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

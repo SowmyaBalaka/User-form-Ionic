@@ -1,0 +1,12 @@
+ion-segment{
+    overflow-x:auto; 
+    white-space:nowrap;
+    --padding-start: 0; 
+    --padding-end: 0;
+    margin: 0;
+}
+ion-segment-button{
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+}

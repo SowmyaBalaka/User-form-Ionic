@@ -1,0 +1,66 @@
+// .custome-display-flex{
+//     display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   gap: 12px;
+// }
+.align-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.pri-bg{
+    background: gold;
+    color:white;
+}
+.non-pri-bg{
+    background-color: rgb(255, 199, 149);
+    color:white;
+}
+.card-header{
+    background-color: #8187c7;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+.user-icons-div{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.card-title{
+    font-size: 16px;
+    color:#fff;
+}
+.user-icons{
+    color:#fff;
+    font-size: 18px ;
+}
+.toolbar-controls{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ion-content {
+  overflow: auto !important;
+}
+cdk-virtual-scroll-viewport {
+  height: 100%;
+  width: 100%;
+}
+.user-description{
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+}
+
+ img{
+   width:50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit:cover;
+}
+.no-user-error{
+    color: red;
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,30 @@
+<app-header></app-header>
+<ion-content [fullscreen]="true">
+  <ion-accordion-group>
+  <ion-accordion value="first">
+    <ion-item slot="header">
+      <ion-label>First Accordion</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">First Content</div>
+  </ion-accordion>
+  <ion-accordion value="second">
+    <ion-item slot="header">
+      <ion-label>Second Accordion</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">First Content</div>
+  </ion-accordion>
+  </ion-accordion-group>
+  <!-- <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="addPhotoToGallery()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col sizeXl="4" sizeMd="6" sizeXs="12" *ngFor="let photo of photoService.photos; index as position">
+        <ion-img [src]="photo.webviewPath"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+</ion-content>

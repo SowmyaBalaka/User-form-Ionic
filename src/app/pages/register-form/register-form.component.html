@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar class="back-button" [routerLink]="['/home']">
+    <ion-button color="primary">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="form-container-div ion-margin-bottom">
+    <form [formGroup]="userForm" (ngSubmit)="registerUser()">
+      <ion-list>
+        <ion-item>
+          <ion-input label="FullName : " labelPlacement="stacked" formControlName="fullName" ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Email : " labelPlacement="stacked" type="email" formControlName="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Contact Number : " labelPlacement="stacked" type="tel"
+            formControlName="contactNumber"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Age: " labelPlacement="stacked" type="text" formControlName="age"></ion-input>
+        </ion-item>
+        <div class="text-area-div">
+          <ion-label position="stacked">Description: </ion-label>
+          <ion-textarea formControlName="description" errorText="Enter Descrption To Continue"
+            auto-grow="true"></ion-textarea>
+        </div>
+
+        <ion-item>
+          <ion-select label="Select Categeory" placeholder="premium" formControlName="premium">
+            <ion-select-option value="Premium">Premium</ion-select-option>
+            <ion-select-option value="Non-Premium">Non-Premium</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-checkbox formControlName="agree" helperText="Agree to the terms before continuing"
+            errorText="You must agree to the terms to continue" labelPlacement="end">
+            I agree to the terms and conditions
+          </ion-checkbox>
+
+        </ion-item>
+        <ion-item  class="file-input-div">
+          <ion-label position="stacked" class="ion-margin-bottom">Upload File:</ion-label>
+          <div class="profile-options">
+            
+          <input type="file" (change)="onImageChange($event)">
+          
+
+          <ion-icon name="camera-outline" class="camera-icon" (click)="captureFromCamera()"></ion-icon>
+          </div>
+          <img *ngIf="userForm.get('image')?.value" [src]="userForm.get('image')?.value" width="150" />
+
+        </ion-item>
+        <div class="submit-button">
+          <ion-button type="submit" id="present-alert">Submit</ion-button>
+
+        </div>
+      </ion-list>
+    </form>
+  </div>
+
+</ion-content>
